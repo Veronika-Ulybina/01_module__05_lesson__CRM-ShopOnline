@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CRM-ShopOnline</title>
+</head>
+
+<body>
+	<form>
+		<fieldset>
+			<legend>Добавить товар</legend>
+
+			<fieldset>
+				<div>
+					<label for="name">Наименование</label>
+					<input type="text" name="name" id="name" pattern="^[А-Яа-яЁё\s]+$" title="Только русские буквы" required>
+				</div>
+
+				<div>
+					<label>
+						<span>Категория</span>
+						<input type="text" name="category" list="list-things" required>
+					</label>
+
+					<datalist id="list-things">
+						<option>Jackets</option>
+						<option>Overalls</option>
+						<option>Raincoats</option>
+						<option>Winter shoes</option>
+					</datalist>
+				</div>
+
+				<div>
+					<label for="units">Единицы измерения</label>
+					<input type="text" name="units" id="units" pattern="^[А-Яа-яЁё\s]+$" title="шт">
+				</div>
+
+				<div>
+					<label for="discount">Дисконт</label>
+					<input type="checkbox" name="discount" value="yes" id="discount" maxlength="2">
+					<input type="text" name="percent" disabled>
+				</div>
+
+				<div>
+					<label for="description">Описание</label>
+					<textarea name="description" id="description" 
+										spellcheck="false" 
+										maxlength="40" 
+										pattern="^[А-Яа-яЁё\s]+$" 
+										title="Не более 30 символов">
+					</textarea>
+				</div>
+
+				<div>
+					<label for="amount">Количество</label>
+					<input type="number" name="amount" id="amount" min="0" required>
+				</div>
+
+				<div>
+					<label for="price">Цена</label>
+					<input type="text" name="price" id="price" inputmode="numeric" pattern="\d+(\.\d{2})?" title="0.00р">
+				</div>
+
+				<div>
+					<input type="file" name="file" accept="images/jpeg, images/png">
+				</div>
+			</fieldset>
+
+			<button type="submit" 
+							formaction="https://jsonplaceholder.typicode.com/posts" 
+							formmethod="post"
+							formtarget="_blank">Добавить товар
+			</button>
+		</fieldset>
+	</form>
+</body>
+</html>
